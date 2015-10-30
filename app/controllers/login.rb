@@ -1,5 +1,9 @@
 get '/signup' do
-  erb :'users/new'
+  erb :login
+end
+# one page does the login and signup
+get '/login' do
+  erb :login
 end
 
 post '/users' do
@@ -9,13 +13,11 @@ post '/users' do
     redirect "/users/#{user.id}"
   else
     errors = user.errors.full_messages
-    erb :'users/new'
+    erb :'users/new', locals: {user: user, errors: errors}
   end
 end
 
-get '/login' do
-  erb :login
-end
+
 
 post '/login' do
   user = User.find_by(username: params[:user][:username])
@@ -23,7 +25,7 @@ post '/login' do
     session[:user_id] = user.id
     redirect '/'
   else
-    @errors = ["Incorrect username or password."]
+    errors = user.errors.full_messages
     erb :'users/login'
   end
 end
