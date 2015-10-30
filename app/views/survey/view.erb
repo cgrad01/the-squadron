@@ -1,0 +1,12 @@
+<h3>Survey Title: <h3>
+<h3> <%= survey.title %> </h3>
+
+<div class="survey-questions">
+  <% survey_questions.each do |question| %>
+    <div> <%= question.text %> </div>
+    <% question_choices(question).each do |choice| %>
+      <div> <%= choice.text %> </div>
+    <% end %>
+  <% end %>
+</div>
+
