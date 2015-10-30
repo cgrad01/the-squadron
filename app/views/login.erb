@@ -1,0 +1,36 @@
+<% if errors %>
+  <div class="errors">
+  <ul>
+  <% errors.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
+
+<p>Returning user? Log in below:</p>
+
+<div class="login">
+  <form method="post" action="/login">
+
+    <h4> Please enter your username and password: </h4>
+    <input id="username_input" name="user[name]" type="text" value="" placeholder="Username" required>
+    <input id="password_input" name="user[password]" type="password" value="" placeholder="Password" required>
+    <input type="submit" value="log in">
+  </form>
+</div>
+
+<p>No account? Sign up below:</p>
+
+<div class="signup">
+  <form method="post" action="/users">
+
+    <h4> Please create username and password: </h4>
+    <input id="username_input" name="user[name]" type="text" value="" placeholder="Username" required>
+    <input id="password_input" name="user[password]" type="password" value="" placeholder="Password" required>
+    <input id="password_input" name="confirm_password" type="password" value="" placeholder="Confirm password" required>
+    <input type="submit" value="sign up">
+  </form>
+</div>
+
+
