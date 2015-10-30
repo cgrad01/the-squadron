@@ -1,0 +1,2 @@
+get '/test' do
+end
