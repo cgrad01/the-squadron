@@ -31,7 +31,7 @@ questions = Question.all
 
 questions.each do |question|
   2.times do Choice.create!(
-    text: Faker::Lorem.words,
+    text: Faker::Company.bs,
     question_id: question.id,
     )
   end
