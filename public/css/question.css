@@ -13,3 +13,7 @@
 .submit-survey-button:hover {
   background-color: gold;
 }
+
+.delete-choice-button {
+  background-color: gold;
+}
