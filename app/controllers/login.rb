@@ -7,29 +7,37 @@ get '/login' do
 end
 
 post '/users' do
-  user = User.new(params[:user])
-  if user.save
-    session[:user_id] = user.id
-    redirect "/users/#{user.id}"
+  if params[:user][:password] == params[:confirm_password]
+    user = User.new(params[:user])
+    if user.save
+      session[:user_id] = user.id
+      redirect "/users/#{user.id}"
+    else
+      @errors = user.errors.full_messages
+      erb :login, locals: {user: user}
+    end
   else
-    errors = user.errors.full_messages
-    erb :'users/new', locals: {user: user, errors: errors}
+    @errors = ["Passwords do not match"]
+    erb :login, locals: {user: user}
   end
 end
 
-
-
 post '/login' do
-  user = User.find_by(username: params[:user][:username])
+  user = User.find_by(name: params[:user][:name])
   if user && user.authenticate(params[:user][:password])
     session[:user_id] = user.id
     redirect '/'
   else
-    errors = user.errors.full_messages
-    erb :'users/login'
+    @errors = ["Incorrect username or password"]
+    erb :login, locals: {user: user}
   end
 end
 
 get '/user/:id' do
   "Profile page goes here"
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end
