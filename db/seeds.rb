@@ -5,14 +5,20 @@ User.create!(name: "rachel", password: "password")
 User.create!(name: "corey", password: "password")
 User.create!(name: "nick", password: "password")
 User.create!(name: "jon", password: "password")
-
 # Seed surveys
+
+Survey.create!({
+  title: "Jon's Survey",
+  creator_id: 4
+  })
+
 4.times do
   Survey.create!(
     title: Faker::Book.title,
     creator_id: rand(1..4),
     )
 end
+
 
 # Seed questions
 surveys = Survey.all
@@ -45,6 +51,7 @@ for survey in surveys
     survey_id: survey.id,
     )
 end
+
 
 
 

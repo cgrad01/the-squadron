@@ -2,10 +2,17 @@
 <!-- requires action path to be filled in by whoever writes controller -->
 <div class=".question"
   <form method="post" action="/test">
-    <p><%= question.text %></p>
+    <p><%= question.text %> <a href="/questions/<%= question.id %>">delete question</a></p>
     <div class="choices">
       <% question.choices.each do |choice| %>
-        <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"/> <span class="question-choice"> <%= choice.text %></span> <br>
+        <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"/>
+        <span class="question-choice"> <%= choice.text %></span>
+        <% if logged_in? && current_user.id == question_survey(question).creator_id %>
+          <div>
+            <a href="/choices/<%= choice.id %>">delete choice</a>
+          </div>
+        <% end %>
+        <br>
       <% end %>
     </div>
   </form>
