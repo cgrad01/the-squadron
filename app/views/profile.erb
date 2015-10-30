@@ -1,0 +1,9 @@
+<h2>My Surveys</h2>
+<ul>
+  <% surveys.each do |survey| %>
+    <li>
+      <a href="/survey/<%= survey.id %>"><%= survey.title %></a>Created on: <%= survey.created_at.asctime %>
+    </li>
+  <% end %>
+</ul>
+
