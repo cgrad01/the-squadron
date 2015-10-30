@@ -26,4 +26,9 @@ helpers do
     end
     cur
   end
+
+  def edit_survey_mode?(survey)
+    logged_in? && survey.creator_id == current_user.id
+  end
+
 end

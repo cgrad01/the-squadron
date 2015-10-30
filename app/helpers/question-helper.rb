@@ -13,3 +13,7 @@ end
 def survey_creator(survey)
   survey.user
 end
+
+def creatorAccess?(question)
+  logged_in? && current_user.id == question_survey(question).creator_id
+end
