@@ -8,8 +8,10 @@
     <% end %>
   </div>
   <br>
+  <% unless edit_survey_mode?(survey) %>
   <div class="submit-survey">
     <input class="submit-survey-button" type="submit" value="complete survey"/>
   </div>
+  <% end %>
 </form>
 
