@@ -1,12 +1,15 @@
 <h3>Survey Title: <h3>
 <h3> <%= survey.title %> </h3>
+<form class="survey-form">
+  <div class="survey-questions">
+    <% survey_questions.each do |question| %>
 
-<div class="survey-questions">
-  <% survey_questions.each do |question| %>
-    <div> <%= question.text %> </div>
-    <% question_choices(question).each do |choice| %>
-      <div> <%= choice.text %> </div>
+      <%= erb :"questions/_view_question", locals: {question: question} %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+  <br>
+  <div class="submit-survey">
+    <input class="submit-survey-button" type="submit" value="complete survey"/>
+  </div>
+</form>
 

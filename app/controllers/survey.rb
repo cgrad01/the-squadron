@@ -5,3 +5,10 @@ get '/survey/:survey_id' do
   erb :'/survey/view', locals: {survey: survey, survey_questions: survey_questions}
 
 end
+
+=begin
+    <div> <%= question.text %> </div>
+    <% question_choices(question).each do |choice| %>
+      <div> <%= choice.text %> </div>
+    <% end %>
+=end

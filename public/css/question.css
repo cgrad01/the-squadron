@@ -1,0 +1,15 @@
+.choices {
+  margin-left: 2em;
+}
+
+.question-choice {
+  margin-left: .5em;
+}
+
+.submit-survey-button {
+  background-color: #99FF66;
+}
+
+.submit-survey-button:hover {
+  background-color: gold;
+}
