@@ -1,11 +1,12 @@
 <!-- expect local variable question -->
 <!-- requires action path to be filled in by whoever writes controller -->
-
-<form method="post" action="/test">
-  <p><%= question.text %></p>
-  <% question.choices.each do |choice| %>
-  <li>
-    <input type="radio" name="<%= choice.text %>" value="<%= choice.id %>"/><%= choice.text %> <br>
-  </li>
-  <% end %>
-</form>
+<div class=".question"
+  <form method="post" action="/test">
+    <p><%= question.text %></p>
+    <% question.choices.each do |choice| %>
+    <li>
+      <input type="radio" name="<%= choice.text %>" value="<%= choice.id %>"/>  <%= choice.text %> <br>
+    </li>
+    <% end %>
+  </form>
+</div>
