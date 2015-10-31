@@ -4,7 +4,7 @@
   <form method="post" action="/test">
     <p><%= question.text %>
       <% if creatorAccess?(question) %>
-      <a href="/questions/<%= question.id %>">delete question</a>
+      <a class="delete-question" href="/questions/<%= question.id %>">delete question</a>
       <% end %>
     </p>
     <div class="choices">
