@@ -1,1 +1,13 @@
-<p> This is the index </p>
+<p> Click on a Survey to take it! </p>
+  <% if logged_in? == false %>
+    <p> Please log in or sign up to see surveys and take them! </p>
+  <% end %>
+<ul>
+  <% surveys.each do |survey| %>
+    <% if user_has_taken?(survey) == false %>
+      <li> <a href="take/<%= survey.id %>"> <%=survey.title %> </a> </li>
+    <% else %>
+      <li> <%= survey.title %>: You already took this survey </li>
+    <% end %>
+  <% end %>
+</ul>
