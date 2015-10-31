@@ -1,7 +1,5 @@
 post '/choices/:id' do
-  return "running"
   choice = Choice.where(id: params[:id]).first
-  return "choice with id #{params[:id]} is not a choice object" unless choice.is_a?(Choice)
   choice.delete
   return "success"
 end
