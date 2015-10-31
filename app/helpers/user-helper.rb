@@ -31,4 +31,9 @@ helpers do
     logged_in? && survey.creator_id == current_user.id
   end
 
+
+  def current_user_name
+    current_user.name
+  end
+
 end
