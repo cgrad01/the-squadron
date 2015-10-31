@@ -4,7 +4,7 @@
 <ul>
   <% surveys.each do |survey| %>
     <li>
-      <a href="/survey/<%= survey.id %>"><%= survey.title %></a>Created on: <%= survey.created_at.asctime %>
+      <a href="/surveys/<%= survey.id %>"><%= survey.title %></a>Created on: <%= survey.created_at.asctime %>
     </li>
   <% end %>
 </ul>
