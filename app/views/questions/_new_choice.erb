@@ -1,7 +1,10 @@
-<div class="new-choice">
-  <form class="choice-form" method="post" action="/choice"
+<div class="new_choice">
+  <form class="choice_form" method="post" action="/choice"
     <label for="choice">Choice:</label>
     <input id="choice" type="text" name="choice[text]" />
-    <input id="choice" type="submit" value="Add choice" />
+    <input type="hidden" name ="choice[question_id]" value="<%= @question.id%>">
+    <input class="choice_form" type="submit" value="Save choice" />
+  </form>
 </div>
+
 
