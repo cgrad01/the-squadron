@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
   $(document).on("click", ".delete-choice", function(){
@@ -49,3 +50,4 @@ $(document).ready(function() {
 
 
 });
+
