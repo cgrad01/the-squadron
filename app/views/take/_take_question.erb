@@ -1,0 +1,10 @@
+<div class=".question"
+    <p><%= question.text %></p>
+    <div class="choices">
+      <% question.choices.each do |choice| %>
+        <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"/>
+        <span class="question-choice"> <%= choice.text %></span>
+        <br>
+      <% end %>
+    </div>
+</div>

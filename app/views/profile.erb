@@ -1,4 +1,6 @@
-<h2>My Surveys</h2>
+<h1><% user.name %>  </h1>
+
+<h2>Surveys I have created</h2>
 <ul>
   <% surveys.each do |survey| %>
     <li>
@@ -7,3 +9,13 @@
   <% end %>
 </ul>
 
+
+<h2> Surveys I have taken </h2>
+<ul>
+  <% all_surveys.each do |survey| %>
+    <% if user_has_taken?(survey) %>
+      <li><%= survey.title %> </li>
+    <% end %>
+  <% end %>
+
+</ul>

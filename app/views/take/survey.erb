@@ -1,0 +1,9 @@
+<h1> Survey: <%= survey.title %> </h1>
+
+<form method="post" action="/take/<%= survey.id %>">
+  <% survey_questions(survey).each do |question| %>
+    <div><%= erb :'take/_take_question', locals: {question: question} %> </div>
+  <% end %>
+
+  <input type="submit" value="Complete Survey">
+</form>
