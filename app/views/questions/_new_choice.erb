@@ -1,10 +1,14 @@
 <div class="new_choice">
-  <form class="choice_form" method="post" action="/choice"
+  <form class="choice_form" method="post" action="/choices">
     <label for="choice">Choice:</label>
     <input id="choice" type="text" name="choice[text]" />
     <input type="hidden" name ="choice[question_id]" value="<%= @question.id%>">
     <input class="choice_form" type="submit" value="Save choice" />
   </form>
 </div>
+
+
+  <a href="/questions/new">Start new question</a>
+  <a href="/surveys/<%= Survey.all.last.id %>">View Completed Survey</a>
 
 

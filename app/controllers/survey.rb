@@ -16,7 +16,6 @@ end
 post '/surveys' do
   user = User.find(session[:user_id])
   survey = Survey.new(creator_id: user.id, title: params[:survey][:title])
-
   if survey.save
     erb :'/questions/_new_question', locals: {survey: survey}, layout: false
   else

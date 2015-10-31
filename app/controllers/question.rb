@@ -1,3 +1,6 @@
+get '/questions/new' do
+  erb :'questions/_new_question', layout: false
+end
 
 get '/questions/:id' do
   question = Question.where(id: params[:id]).first
@@ -13,10 +16,12 @@ end
 
 post '/questions' do
   @question = Question.new(params[:question])
-  if question.save
+  if @question.save
     erb :"/questions/_new_choice", layout: false
   else
     @errors = question.errors.full_messages
   end
 end
+
+
 
