@@ -1,0 +1,16 @@
+<h1> These are the survey results for: <%= survey.title %> </h1>
+
+<% survey_questions.each do |question| %>
+  <p> <%= question.text %> </p>
+  <% choices = question.choices %>
+
+  <ul>
+    <% choices.each do |choice| %>
+      <li> <%= choice.text %> ::: <%= (choice.responses.length/ count_question_responses(choices).to_f * 100).round(2) %>% </li>
+    <% end %>
+  </ul>
+
+<% end %>
+
+
+
