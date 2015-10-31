@@ -4,10 +4,10 @@
   <% end %>
 <% end %>
 
-<form class="question_form" method="post" action="/question">
+<form class="question_form" method="post" action="/questions">
   <label for="question">Question:</label>
   <input id="question" type="text" name="question[text]" />
-  <input type="hidden" name ="question[survey_id]" value="<%= survey.id%>">
+  <input type="hidden" name ="question[survey_id]" value="<%= Survey.all.last.id%>">
 
   <input class="question_form" type="submit" value="Add Question">
 

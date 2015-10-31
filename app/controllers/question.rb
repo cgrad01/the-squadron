@@ -1,3 +1,6 @@
+get '/questions/new' do
+  erb :'questions/_new_question', layout: false
+end
 
 get '/questions/:id' do
   question = Question.where(id: params[:id]).first
@@ -19,4 +22,6 @@ post '/questions' do
     @errors = question.errors.full_messages
   end
 end
+
+
 
