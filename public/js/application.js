@@ -22,5 +22,30 @@ $(document).ready(function() {
 
   });
 
+  $(document).on("click", ".delete-question", function(){
+    event.preventDefault();
+    $target = $(event.target)
+    var questionId = $target.attr("href").slice(11)
+
+    var request = $.ajax({
+      method: "post",
+      url: "/questions/" + questionId
+    });
+
+
+    request.done(function(){
+      $target.parent().parent().remove();
+      console.log(done);
+    });
+
+    request.fail(function(jsXHR){
+      console.log("fail");
+      console.log(jsXHR.responseText);
+    });
+
+  });
+
+
+
 
 });

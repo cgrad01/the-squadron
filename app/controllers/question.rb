@@ -2,11 +2,12 @@ get '/questions/new' do
   erb :'questions/_new_question', layout: false
 end
 
-get '/questions/:id' do
+post '/questions/:id' do
   question = Question.where(id: params[:id]).first
   return "question with id #{params[:id]} is not a question object" unless question.is_a?(Question)
+  question.choices.each{|choice| choice.delete}
   question.delete
-  redirect '/survey/1'
+  "questions deleted"
 end
 
 get '/questions' do
