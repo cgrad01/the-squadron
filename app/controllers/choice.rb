@@ -6,12 +6,12 @@ get '/choices/:id' do
   redirect '/survey/1'
 end
 
-get '/choice' do
+get '/choices' do
   choice = Choice.new(params[:choice])
   erb :'questions/_new_choice', locals: {choice: choice}, layout: false
 end
 
-post '/choice' do
+post '/choices' do
   @question = Question.find(params[:choice][:question_id])
   choice = Choice.new(params[:choice])
   if choice.save
@@ -22,7 +22,7 @@ post '/choice' do
   end
 end
 
-post '/choice/new' do
+post '/choices/new' do
   @question = Question.new(params[:question])
     erb :'questions/_new_question', layout: false
 end

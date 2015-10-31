@@ -33,7 +33,7 @@ post '/login' do
   end
 end
 
-get '/user/:id' do
+get '/users/:id' do
   "Profile page goes here"
 end
 

@@ -6,12 +6,12 @@ get '/questions/:id' do
   redirect '/survey/1'
 end
 
-get '/question' do
+get '/questions' do
   @question = Question.new(params[:question])
   erb :'/questions/_new_question', layout: false
 end
 
-post '/question' do
+post '/questions' do
   @question = Question.new(params[:question])
   if question.save
     erb :"/questions/_new_choice", layout: false

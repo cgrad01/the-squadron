@@ -1,6 +1,6 @@
 
 
-get '/survey/:survey_id/results' do
+get '/surveys/:survey_id/results' do
   survey = Survey.find(params[:survey_id])
   survey_questions = survey.questions
 
@@ -8,12 +8,12 @@ get '/survey/:survey_id/results' do
   erb :'/survey/results', locals: {survey: survey, survey_questions: survey_questions}
 end
 
-get '/survey/new' do
+get '/surveys/new' do
   erb :'/survey/new_survey'
 end
 
 
-post '/survey' do
+post '/surveys' do
   user = User.find(session[:user_id])
   survey = Survey.new(creator_id: user.id, title: params[:survey][:title])
 
@@ -26,7 +26,7 @@ post '/survey' do
 end
 
 
-get '/survey/:survey_id' do
+get '/surveys/:survey_id' do
   survey = Survey.find(params[:survey_id])
   survey_questions = survey.questions
 
@@ -37,7 +37,7 @@ end
 
 
 
-post '/question' do
+post '/questions' do
   question = Question.new(params[:question])
 
   if question.save
