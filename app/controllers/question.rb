@@ -13,7 +13,7 @@ end
 
 post '/questions' do
   @question = Question.new(params[:question])
-  if question.save
+  if @question.save
     erb :"/questions/_new_choice", layout: false
   else
     @errors = question.errors.full_messages
