@@ -13,7 +13,6 @@ def tally_results(results)
     end
   end
   hashed_answers
-
 end
 
 
