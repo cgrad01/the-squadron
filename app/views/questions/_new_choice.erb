@@ -9,6 +9,6 @@
 
 
   <a href="/questions/new">Start new question</a>
-  <a href="/surveys/<%= Survey.all.last.id %>">View Completed Survey</a>
+  <a href="/surveys/<%= session[:survey_id] %>">View Completed Survey</a>
 
 

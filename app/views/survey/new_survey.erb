@@ -1,10 +1,18 @@
 <form class="survey_form" method="post" action="/surveys">
-  <label for="survey">Survey Title:</label>
+  <label id="survey_title" for="survey">Survey Title:</label>
   <input id="survey" type="text" name="survey[title]" />
   <input class="survey_form" type="submit" value="Add Question">
 
 </form>
+<div class="survey_name"> </div>
 
-<div class="questions"></div>
+<div class="questions_container">
+  <div class="question">
+     <div class="choices"> </div>
+  </div>
+  <div class="question2">
+    <div class="choices"> </div>
+  </div>
+</div>
 
 
