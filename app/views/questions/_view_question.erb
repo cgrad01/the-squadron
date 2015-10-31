@@ -9,13 +9,15 @@
     </p>
     <div class="choices">
       <% question.choices.each do |choice| %>
-        <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"/>
-        <span class="question-choice"> <%= choice.text %></span>
-        <% if creatorAccess?(question) %>
-          <div>
-            <a class"delete-choice" href="/choices/<%= choice.id %>">delete choice</a>
-          </div>
-        <% end %>
+        <div class="choice-container">
+          <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"/>
+          <span class="question-choice"> <%= choice.text %></span>
+          <% if creatorAccess?(question) %>
+            <div>
+              <a class="delete-choice" href="/choices/<%= choice.id %>">delete choice</a>
+            </div>
+          <% end %>
+        </div>
         <br>
       <% end %>
     </div>
