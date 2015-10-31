@@ -1,0 +1,16 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p>error</p>
+  <% end %>
+<% end %>
+
+<form class="question_form" method="post" action="/question">
+  <label for="question">Question:</label>
+  <input id="question" type="text" name="question[text]" />
+  <input type="hidden" name ="question[survey_id]" value="<%= survey.id%>">
+
+  <input class="question_form" type="submit" value="Add Question">
+
+</form>
+
+
