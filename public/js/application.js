@@ -1,6 +1,43 @@
 
 $(document).ready(function() {
 
+  // *********************
+  // Ajax for results page
+  // *********************
+
+  $(document).on("submit", ".display-results", function(event){
+    event.preventDefault();
+    var $target = $(event.target);
+    var targetUrl = $(this).attr('action');
+    var request = $.ajax({
+      method: "post",
+      url: targetUrl
+    })
+
+    request.done(function(surveyResults){
+      $target.toggle();
+      $target.parent().append(surveyResults);
+
+    })
+  });
+
+
+  $(document).on("submit", ".hide-results", function(event) {
+    event.preventDefault();
+    var $target = $(event.target);
+    var request = $.ajax({
+      method: "post",
+      url: "/hideresults"
+    }).done(function(results){
+      $target.parent().hide();
+      $('.display-results').toggle();
+    });
+
+  });
+
+
+  // Ajax for creating a survey
+
   $(document).on("click", ".delete-choice", function(){
     event.preventDefault();
     var $target = $(event.target);
