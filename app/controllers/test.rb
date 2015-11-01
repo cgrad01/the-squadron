@@ -1,3 +1,3 @@
 get '/test' do
-  erb :"questions/_view_question", locals: {question: Question.first}
+  erb :"questions/_new_question"
 end

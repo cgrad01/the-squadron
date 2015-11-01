@@ -1,17 +1,13 @@
-
-
 get '/surveys/:survey_id/results' do
   survey = Survey.find(params[:survey_id])
   survey_questions = survey.questions
-
 
   erb :'/survey/results', locals: {survey: survey, survey_questions: survey_questions}
 end
 
 get '/surveys/new' do
-  erb :'/survey/new_survey'
+  erb :'/survey/new_survey', layout: false
 end
-
 
 post '/surveys' do
   user = User.find(session[:user_id])
@@ -23,8 +19,8 @@ post '/surveys' do
     @errors = survey.errors.full_messages
     erb :'/survey/new_survey', layout: false
   end
+  status 400
 end
-
 
 get '/surveys/:survey_id' do
   survey = Survey.find(params[:survey_id])
@@ -33,9 +29,6 @@ get '/surveys/:survey_id' do
   erb :'/survey/view', locals: {survey: survey, survey_questions: survey_questions}
 
 end
-
-
-
 
 post '/questions' do
   question = Question.new(params[:question])
@@ -47,6 +40,17 @@ post '/questions' do
   end
 end
 
-
+post '/surveys/new' do
+  params.to_s
+  survey=Survey.new(title: params[:title], creator_id: current_user.id)
+  if survey.save
+    set_current_survey(survey)
+    status 200
+    erb :"questions/_new_question", layout: false
+  else
+    status 400
+    params[:title]
+  end
+end
 
 

@@ -1,18 +1,21 @@
-<form class="survey_form" method="post" action="/surveys">
-  <label id="survey_title" for="survey">Survey Title:</label>
-  <input id="survey" type="text" name="survey[title]" />
-  <input class="survey_form" type="submit" value="Add Question">
+<div class="new-survey-page">
 
-</form>
-<div class="survey_name"> </div>
+  <div class="survey-title"> </div>
 
-<div class="questions_container">
-  <div class="question">
-     <div class="choices"> </div>
+  <div class="questions-container">
   </div>
-  <div class="question2">
-    <div class="choices"> </div>
-  </div>
+
+
+
+
+
+  <form class="survey-form" method="post" action="/surveys">
+    <label id="survey_title" for="survey">Survey Title:</label>
+    <input class="survey-name" type="text" name="survey[title]" />
+    <input class="make-survey" type="submit" value="Add Question">
+  </form>
+
+
 </div>
 
 
