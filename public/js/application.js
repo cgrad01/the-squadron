@@ -103,7 +103,7 @@ $(document).ready(function() {
 
     request.done(function(response){
 
-      $(".questions-container").append("<h4 class='built-question'>"+response+"</h4>");
+      $(".questions-container").append(response);
       $(".add-q").val("");
       console.log(response);
     });
@@ -115,6 +115,53 @@ $(document).ready(function() {
 
   });
 
+  $(document).on("click", ".add-choice-button", function(){
+    event.preventDefault();
+    var $target = $(event.target);
+    var questionId = $target.attr('id').slice(14);
+
+    var request = $.ajax({
+      method: "post",
+      url: "/choices/new",
+      data: {"question_id": questionId}
+    });
+
+    request.done(function(response){
+      questionId
+      // debugger
+      $("#"+questionId).append(response);
+      console.log("done");
+      console.log(response);
+    });
+
+    request.fail(function(jsXHR){
+      console.log("fail");
+    });
+
+  });
+
+  $(document).on("click", ".save-choice", function(){
+    event.preventDefault();
+    $target = $(event.target);
+    var questionId = $target.parent().parent().parent().attr("id");
+    var choiceContent = $target.siblings("input").val();
+
+    var request = $.ajax({
+      method: "post",
+      url: "/choices/new_choice",
+      data: {"question_id": questionId, "choice_content": choiceContent}
+    });
+
+    request.done(function(response){
+      $target.parent().replaceWith(response);
+      console.log("done");
+      console.log(response);
+    });
+
+    request.fail(function(jsXHR){
+      console.log("fail");
+    });
+  });
 
 });
 
