@@ -1,0 +1,21 @@
+<div class="displayed-results">
+  <% survey_questions.each_with_index do |question, index| %>
+    <p><%=index+1%>: <%= question.text %> </p>
+    <% choices = question.choices %>
+
+    <ul>
+      <% choices.each do |choice| %>
+        <% if count_question_responses(choices) == 0 %>
+             <li>  <%= choice.text %> ::: Unanswered  </li>
+        <% else %>
+          <li>  <%= choice.text %> ::: <%= (choice.responses.length/ count_question_responses(choices).to_f * 100).round(2) %>% </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+  <% end %>
+
+  <form class="hide-results" method="post" action="/hideresults">
+    <input  type="submit" value="Hide Results">
+  </form>
+</div>

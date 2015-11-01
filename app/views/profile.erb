@@ -4,7 +4,15 @@
 <ul>
   <% surveys.each do |survey| %>
     <li>
-      <a href="/surveys/<%= survey.id %>"><%= survey.title %></a>Created on: <%= survey.created_at.asctime %>
+      <p> <%= survey.title %> Created on: <%= survey.created_at.asctime %> </p>
+      <div class="profile-buttons">
+        <form class="display-results" method="post" action="/surveys/<%= survey.id %>/results">
+          <input  type="submit" value="See results">
+        </form>
+        <form class="modify-survey" method="get" action="/surveys/<%= survey.id %>">
+          <input  type="submit" value="Modify Survey">
+        </form>
+      </div>
     </li>
   <% end %>
 </ul>
