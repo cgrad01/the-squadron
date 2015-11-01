@@ -76,9 +76,9 @@ $(document).ready(function() {
 
     request.done(function(response){
       surveyName;
-      $(".survey-title").text(surveyName)
+      $(".survey-title").replaceWith("<h1 class='build-survey'>"+surveyName+"</h1>");
       $(".survey-form").hide()
-      $(".questions-container").append(response)
+      $(".new-question").replaceWith(response)
       console.log(response)
     });
 
@@ -102,6 +102,9 @@ $(document).ready(function() {
     })
 
     request.done(function(response){
+
+      $(".questions-container").append("<h4 class='built-question'>"+response+"</h4>");
+      $(".add-q").val("");
       console.log(response);
     });
 

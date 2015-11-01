@@ -1,3 +1,4 @@
 get '/test' do
-  erb :"questions/_new_question"
+  @question=Question.first
+  erb :"questions/_new_choice"
 end

@@ -3,9 +3,17 @@ get '/questions/new' do
 end
 
 post '/questions/new' do
-  # question = Question.new(text: params[:question], survey_id: get_current_survey.id)
-  # question.survey_id
-  get_current_survey.id
+  question = Question.new(text: params[:question], survey_id: current_survey.id)
+  if question.save
+    status 200
+    question.text
+  else
+    status 400
+    params[:question]
+  end
+
+
+
 end
 
 post '/questions/:id' do
