@@ -17,3 +17,9 @@
 .delete-choice-button {
   background-color: gold;
 }
+
+.add-choice-button {
+  height: 1em;
+  line-height: .5;
+  margin-left: .5em;
+}

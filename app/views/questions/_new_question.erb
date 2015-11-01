@@ -1,11 +1,10 @@
 
 <div class="new_question">
-  <form class="question_form" method="post" action="/questions">
+  <form class="question-form" method="post" action="/questions">
     <label for="question">Question:</label>
-    <input id="question" type="text" name="question[text]" />
+    <input class="add-q" type="text" name="question[text]" />
     <input class="questions_survey_id" type="hidden" name ="question[survey_id]" value="<%= session[:survey_id] %>">
-    <input class="question_form" type="submit" value="Add Question">
-
+    <input class="add-question" type="submit" value="Add Question">
   </form>
 </div>
 
